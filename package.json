@@ -42,6 +42,7 @@
     "watch": "node scripts/build.mjs --watch",
     "test": "node --test test/*.test.js",
     "assets": "python3 scripts/gen-assets.py",
+    "index": "node scripts/build-index.mjs",
     "prepack": "npm run build"
   },
   "devDependencies": {

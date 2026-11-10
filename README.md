@@ -149,9 +149,23 @@
 
 要求 DeepSeek Harness `0.2.1-rc.5` 及以上的 `0.2.x`，已在 `0.2.2-rc.1` 的桌面版和网页版上测过。
 
-**1. 安装。** 打开 DeepSeek Harness 桌面版，进「插件」→「添加插件」，输入包名 `dsh-media-desk`，点安装。
+**1. 安装。** 打开 DeepSeek Harness 侧栏的「插件」，在「实验性插件」下启用「自定义插件索引」，页面会多出「已安装」和「发现」两个标签。
 
-也可以用命令行。桌面版要先完全退出（⌘Q）再装，装好重新打开；网页版装好后重启 `dsh web`。终端里没有 `dsh` 的话，先在桌面版菜单里选「管理 dsh 命令」。
+切到「发现」，添加这条索引地址（加一次就够）：
+
+```
+https://raw.githubusercontent.com/woniuniuniu/dsh-media-desk/main/index.json
+```
+
+GitHub 直连不通时，换成这个 CDN 镜像，代价是它可能比最新发布晚几个小时：
+
+```
+https://cdn.jsdelivr.net/gh/woniuniuniu/dsh-media-desk@main/index.json
+```
+
+列表里会出现「自媒体工作台」，点安装即可。它装的就是同一个 npm 包 `dsh-media-desk`，索引只是省掉手输包名这一步。
+
+不想加索引，也可以在「插件」→「添加插件」里输入包名 `dsh-media-desk` 点安装，或者用命令行。桌面版要先完全退出（⌘Q）再装，装好重新打开；网页版装好后重启 `dsh web`。终端里没有 `dsh` 的话，先在桌面版菜单里选「管理 dsh 命令」。
 
 ```bash
 dsh plugin --profile desktop add dsh-media-desk
@@ -161,7 +175,7 @@ dsh plugin --profile desktop add dsh-media-desk
 dsh plugin --profile web add dsh-media-desk
 ```
 
-**2. 更新。** 有新版本时，在插件页点更新，或者重新执行一次上面的命令。想离线安装的话，也可以到 [Releases](https://github.com/woniuniuniu/dsh-media-desk/releases/latest) 下载 `dsh-media-desk-*.tgz`，把包名换成 `"file:$PWD/dsh-media-desk-版本号.tgz"`。
+**2. 更新。** 索引里列的是最新发布，所以有新版本时插件页会显示可更新，点一下就行；用命令行装的重跑一次上面的命令。想离线安装的话，也可以到 [Releases](https://github.com/woniuniuniu/dsh-media-desk/releases/latest) 下载 `dsh-media-desk-*.tgz`，把包名换成 `"file:$PWD/dsh-media-desk-版本号.tgz"`。
 
 **3. 打开。** 侧栏会出现「自媒体工作台」。第一次看到的都是示例数据，方便你先看看每个页面长什么样；点右上角「示例数据 · 清空」，换成自己的。
 
@@ -287,10 +301,13 @@ dsh plugin --profile web add dsh-media-desk
 ```bash
 npm install && npm test        # Host 逻辑测试
 npm run watch                  # 监听 client/ 并重新打包
+npm run index                  # 发布后更新 index.json 的版本和发布时间
 scripts/dev-sandbox.sh         # 在隔离的 DSH_HOME 里跑网页版，不碰 ~/.dsh
 node scripts/mock-llm.mjs      # 模拟文字和生图模型，不花额度
 npm pack                       # 打出可安装的 tgz
 ```
+
+`index.json` 是插件市场索引，`npm run index` 会按 npm 上的最新发布刷新里面的版本号和发布时间，所以每次发版后跑一次，索引里才是新版本。
 
 `scripts/mock-monid.mjs` 是假的 `monid` 命令，内容全是编的，用来不花钱测导入流程：包成名为 `monid` 的可执行文件放到 `PATH` 最前面。
 
@@ -298,7 +315,7 @@ npm pack                       # 打出可安装的 tgz
 | --- | --- |
 | `client/` | 界面：灵感墙、成稿、对话、内容、排期、复盘、风格、设置 |
 | `src/` | Host 接口、成稿流水线、提示词、生图、风格提炼、Monid 导入、本地存储 |
-| `scripts/` | 打包、沙盒、模拟模型、示例素材生成 |
+| `scripts/` | 打包、沙盒、模拟模型、示例素材生成、插件市场索引 |
 | `assets/` | 示例图片和视频，全部由 `scripts/gen-assets.py` 程序绘制 |
 | `docs/assets/` | 本页的展示图 |
 
