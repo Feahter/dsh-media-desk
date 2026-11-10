@@ -150,7 +150,7 @@ It works with TikTok, Instagram, YouTube and X as well as Chinese platforms (Red
 
 Requires DeepSeek Harness `0.2.1-rc.5` or later in the `0.2.x` line. Tested on `0.2.2-rc.1`, desktop and web.
 
-**1. Install.** Open **Plugins** in the DeepSeek Harness sidebar and switch on **Custom plugin indexes** under **Experimental plugins**; the page then shows the **Installed** and **Discover** tabs.
+**1. Install.** Open **Plugins** in the DeepSeek Harness sidebar and switch on the experimental index support: on DSH `0.2.2` and later it is **Custom plugin indexes** under **Experimental plugins**; on the `0.2.1` line it is **Custom plugin markets**, under **More** beside **Experimental plugins**. The page then shows the **Installed** and **Discover** tabs.
 
 Switch to **Discover** and add this index URL — once is enough:
 
@@ -158,7 +158,7 @@ Switch to **Discover** and add this index URL — once is enough:
 https://raw.githubusercontent.com/woniuniuniu/dsh-media-desk/main/index.json
 ```
 
-If github.com is hard to reach from your network, use this CDN mirror instead — it can lag a few hours behind the latest release:
+If github.com is hard to reach from your network, use this CDN mirror instead — it can lag up to 12 hours behind the latest release:
 
 ```
 https://cdn.jsdelivr.net/gh/woniuniuniu/dsh-media-desk@main/index.json

@@ -149,7 +149,7 @@
 
 要求 DeepSeek Harness `0.2.1-rc.5` 及以上的 `0.2.x`，已在 `0.2.2-rc.1` 的桌面版和网页版上测过。
 
-**1. 安装。** 打开 DeepSeek Harness 侧栏的「插件」，在「实验性插件」下启用「自定义插件索引」，页面会多出「已安装」和「发现」两个标签。
+**1. 安装。** 打开 DeepSeek Harness 侧栏的「插件」，先打开实验性的索引功能：DSH `0.2.2` 及以上在「实验性插件」下启用「自定义插件索引」；`0.2.1` 系列里它叫「自定义插件市场」，在「实验性插件」旁的「更多」里。打开后页面会多出「已安装」和「发现」两个标签。
 
 切到「发现」，添加这条索引地址（加一次就够）：
 
@@ -157,7 +157,7 @@
 https://raw.githubusercontent.com/woniuniuniu/dsh-media-desk/main/index.json
 ```
 
-GitHub 直连不通时，换成这个 CDN 镜像，代价是它可能比最新发布晚几个小时：
+GitHub 直连不通时，换成这个 CDN 镜像，代价是它最多可能比最新发布晚 12 小时：
 
 ```
 https://cdn.jsdelivr.net/gh/woniuniuniu/dsh-media-desk@main/index.json

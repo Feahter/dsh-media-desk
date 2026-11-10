@@ -1,9 +1,5 @@
-// index.json 里版本条目的规则：从 npm registry 的单个包文档里取最新发布，
-// 并检查 DSH 插件市场格式要求的东西——engines.dsh 必须是 SemVer 区间，
-// 其余字段按发布时的真实值填写。读不懂的输入直接报错，不做猜测。
-import semver from 'semver'
-
-/** 把 registry 文档变成 index.json 的一条版本记录；不合格时抛错。 */
+// index.json 里版本条目的规则：从 npm registry 的单个包文档里取最新发布。
+// 结构不合格就在这里报错；格式是否合规由 scripts/build-index.mjs 用官方校验器兜底。
 export function latestMarketVersion(registry) {
   const version = registry?.['dist-tags']?.latest
   if (!version) throw new Error('npm registry 上没有 latest 标签')
@@ -13,9 +9,6 @@ export function latestMarketVersion(registry) {
   const range = manifest.engines?.dsh
   if (typeof range !== 'string' || range.trim() === '') {
     throw new Error(`${version} 的 package.json 没有 engines.dsh，插件市场要求每个列出的版本都声明它`)
-  }
-  if (range.startsWith('workspace:') || semver.validRange(range) === null) {
-    throw new Error(`${version} 的 engines.dsh 不是 SemVer 区间：${JSON.stringify(range)}`)
   }
 
   const published = registry.time?.[version]
