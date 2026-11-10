@@ -46,7 +46,8 @@
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "esbuild": "^0.25.10"
+    "esbuild": "^0.25.10",
+    "semver": "^7.8.5"
   },
   "files": [
     "src",

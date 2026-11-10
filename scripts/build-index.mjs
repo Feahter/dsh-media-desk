@@ -6,6 +6,7 @@
 //
 //   npm run index
 import { readFileSync, writeFileSync } from 'node:fs'
+import { latestMarketVersion, reconcileDistTags } from './index-entry.mjs'
 
 const root = new URL('..', import.meta.url)
 const indexPath = new URL('index.json', root)
@@ -22,21 +23,8 @@ const response = await fetch(`https://registry.npmjs.org/${manifest.name}`, {
 if (!response.ok) throw new Error(`npm registry 返回 ${response.status}：${manifest.name}`)
 const registry = await response.json()
 
-const version = registry['dist-tags']?.latest
-if (!version) throw new Error(`npm registry 上没有 latest 标签：${manifest.name}`)
-if (!registry.versions?.[version]) throw new Error(`npm registry 上没有版本 ${version}`)
-const published = registry.time?.[version]
-if (!published) throw new Error(`npm registry 上没有 ${manifest.name}@${version} 的发布时间`)
-
-const dshRange = manifest.engines?.dsh
-plugin.versions = [
-  {
-    version,
-    publishTimestamp: Math.floor(Date.parse(published) / 1000),
-    source: { type: 'npm' },
-    engines: dshRange === undefined ? {} : { dsh: dshRange },
-  },
-]
+plugin.versions = [latestMarketVersion(registry)]
+reconcileDistTags(plugin, plugin.versions)
 
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n')
-console.log(`index.json：${manifest.name}@${version}，发布于 ${published}`)
+console.log(`index.json：${manifest.name}@${plugin.versions[0].version}，发布戳 ${plugin.versions[0].publishTimestamp}`)
