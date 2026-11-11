@@ -42,9 +42,11 @@
     "watch": "node scripts/build.mjs --watch",
     "test": "node --test test/*.test.js",
     "assets": "python3 scripts/gen-assets.py",
+    "index": "node scripts/build-index.mjs",
     "prepack": "npm run build"
   },
   "devDependencies": {
+    "@deepseek-ai/dsh-plugin-market-index": "^0.2.1-rc.2",
     "esbuild": "^0.25.10"
   },
   "files": [
