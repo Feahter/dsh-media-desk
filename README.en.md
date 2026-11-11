@@ -50,6 +50,8 @@ It works with TikTok, Instagram, YouTube and X as well as Chinese platforms (Red
 <td valign="top">
 <p><b>Everything fills in together.</b></p>
 <p>The layout appears as soon as you open an idea. The title, script, cover, images and six storyboard frames are generated in parallel and appear as each one is ready.</p>
+<p><b>Script or article, your call.</b></p>
+<p>A script puts one sentence per line in short blocks, ready to read aloud. An article is written in full paragraphs, ready to post. Both get a headline, and both stay close to the style and reference you chose.</p>
 <p><b>Ask for a change.</b></p>
 <p>Try "make it clearer", "shoot frame 3 from above" or "bolder cover text". The draft updates as you watch, and every change can be undone.</p>
 <p><b>Take it with you.</b></p>
@@ -298,6 +300,10 @@ To the people who tried it carefully, tracked problems down and sent fixes:
 - [chenxupeng1990-eng](https://github.com/chenxupeng1990-eng), for letting the assistant use any connected model instead of only the DSH default ([#5](https://github.com/woniuniuniu/dsh-media-desk/pull/5))
 - [dsh-agent-sixtyseven](https://github.com/dsh-agent-sixtyseven), for tracking down why account import on Windows kept saying "Monid isn’t installed yet" and fixing both how the command is found and how it's run ([#7](https://github.com/woniuniuniu/dsh-media-desk/issues/7), [#8](https://github.com/woniuniuniu/dsh-media-desk/pull/8))
 - [smallflycar](https://github.com/smallflycar), for letting the desk draw images with a GPT subscription, no separate image API needed ([#9](https://github.com/woniuniuniu/dsh-media-desk/pull/9))
+- [cofftea114](https://github.com/cofftea114), for pointing out that the desk has no entry once another plugin takes over the left sidebar, and for showing how to mount it as a dsh-better-sidebar tab ([#10](https://github.com/woniuniuniu/dsh-media-desk/issues/10))
+- [Feahter](https://github.com/Feahter), for the plugin market index that makes the desk a one-click install from Discover, validation and tests included ([#11](https://github.com/woniuniuniu/dsh-media-desk/pull/11))
+- [TerryWang9112 (Terry)](https://github.com/TerryWang9112), for adding Alibaba Cloud Bailian and Wan image generation, and for letting each draft skip images ([#12](https://github.com/woniuniuniu/dsh-media-desk/pull/12))
+- [ytzhangFTD](https://github.com/ytzhangFTD), for noticing that an idea's notes disappear inside the studio and pinpointing the missing render path ([#13](https://github.com/woniuniuniu/dsh-media-desk/issues/13))
 
 [Issues](https://github.com/woniuniuniu/dsh-media-desk/issues) are always welcome. Every one gets read.
 

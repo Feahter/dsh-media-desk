@@ -50,6 +50,8 @@
 <td valign="top">
 <p><b>整页一起长出来。</b></p>
 <p>点开灵感，稿面的格子一开始就排好了。标题、脚本、视频封面、配图和六格分镜同时生成，一边生成一边填满。</p>
+<p><b>脚本还是文章，你来选。</b></p>
+<p>脚本一句话一行、一段一段，照着念就行；文章按自然段写，可以直接发。两种都带大标题，也都会贴着你选的风格和参考内容来写。</p>
 <p><b>说一句，就改。</b></p>
 <p>「表达再直接一点」「第 3 镜换成俯拍」「封面字更有冲击力」，右边实时更新，每一步都能撤销。</p>
 <p><b>拿走就能用。</b></p>
@@ -295,6 +297,10 @@ dsh plugin --profile web add dsh-media-desk
 - [chenxupeng1990-eng](https://github.com/chenxupeng1990-eng)：让助手可以在工作台里自选模型，不必跟随 DSH 默认模型（[#5](https://github.com/woniuniuniu/dsh-media-desk/pull/5)）
 - [dsh-agent-sixtyseven](https://github.com/dsh-agent-sixtyseven)：查清 Windows 上导入账号一直显示「还没装好 Monid」的两处根因，并修好了定位和调用（[#7](https://github.com/woniuniuniu/dsh-media-desk/issues/7)、[#8](https://github.com/woniuniuniu/dsh-media-desk/pull/8)）
 - [smallflycar](https://github.com/smallflycar)：让工作台可以直接用 GPT 订阅生图，不用再另配图片 API（[#9](https://github.com/woniuniuniu/dsh-media-desk/pull/9)）
+- [cofftea114](https://github.com/cofftea114)：指出左侧栏被别的插件接管后工作台没有入口，并给出挂到 dsh-better-sidebar 右侧栏的做法（[#10](https://github.com/woniuniuniu/dsh-media-desk/issues/10)）
+- [Feahter](https://github.com/Feahter)：做了插件市场索引，粘一条地址就能在「发现」里一键安装，还带上了校验和测试（[#11](https://github.com/woniuniuniu/dsh-media-desk/pull/11)）
+- [TerryWang9112（Terry）](https://github.com/TerryWang9112)：接入阿里云百炼和万相生图，并让每次成稿可以选择只出文字、不画图（[#12](https://github.com/woniuniuniu/dsh-media-desk/pull/12)）
+- [ytzhangFTD（小虾米）](https://github.com/ytzhangFTD)：发现灵感的正文进了成稿工作区就看不到，并定位到是哪一处没有渲染（[#13](https://github.com/woniuniuniu/dsh-media-desk/issues/13)）
 
 欢迎大家继续[提 issue](https://github.com/woniuniuniu/dsh-media-desk/issues)，每一条都会认真看。
 
