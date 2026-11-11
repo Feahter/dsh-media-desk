@@ -7,6 +7,7 @@ import { tr } from './i18n.js'
 import { coverPrompt, figurePrompt, shotPrompt } from './images.js'
 import { newId } from './ops.js'
 import { imageReady } from './settings.js'
+import { draftFormat } from './style.js'
 
 const CONCURRENCY = 3
 // 模型卡住不出字时，到点改用草稿，不让进度条一直转
@@ -186,7 +187,7 @@ export class Producer {
     this.jobs.set(id, job)
     await this.store.mutate('开始成稿', (draft) => {
       const target = draft.items.find(row => row.id === id)
-      target.production = { status: 'running', stage: 'brief', withImages: draw, startedAt: new Date().toISOString(), title: target.title, article: '', cover: null, images: [], shots: [] }
+      target.production = { status: 'running', stage: 'brief', withImages: draw, startedAt: new Date().toISOString(), format: draftFormat(draft.draftFormat), title: target.title, article: '', cover: null, images: [], shots: [] }
       return draft
     }, { undoable: false })
     // 不等待：浏览器靠轮询拿进度

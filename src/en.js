@@ -172,6 +172,8 @@ export const EN = {
   '更新风格「{name}」': 'Updated style "{name}"',
   '删除风格「{name}」': 'Deleted style "{name}"',
   不再使用特定风格: 'No longer using a specific style',
+  之后写成文章: 'Drafting as articles from now on',
+  之后写成口播脚本: 'Drafting as video scripts from now on',
   '之后按「{name}」的风格写': 'Writing in the "{name}" style from now on',
   'Skill 需要名字和规则': 'A writing rule needs a name and a rule',
   '沉淀规则「{name}」': 'Added writing rule "{name}"',

@@ -986,3 +986,38 @@ test('状态规则：发布时间、排期与取消排期、清空示例不留�
   assert.equal(state.items.find(row => row.id === child.target).parentId, null)
   assert.equal(state.metrics.length, 0)
 })
+
+test('体裁：脚本一句一行，文章按自然段；set_format 记在状态上，成稿时带进提示词', () => {
+  const state = seed()
+  const item = state.items[0]
+  assert.match(articlePrompts(state, item, '').system, /一句话占一行/)
+  const { receipts } = applyOps(state, [{ op: 'set_format', format: 'article' }])
+  assert.equal(state.draftFormat, 'article')
+  assert.ok(receipts[0].text)
+  const article = articlePrompts(state, item, '').system
+  assert.match(article, /按自然段写/)
+  assert.doesNotMatch(article, /一句话占一行/)
+  // 已经开写的稿子按它自己的体裁，不跟着后来的选择变
+  assert.match(articlePrompts(state, { ...item, production: { format: 'script' } }, '').system, /一句话占一行/)
+  applyOps(state, [{ op: 'set_format', format: '乱写' }])
+  assert.equal(state.draftFormat, 'script')
+})
+
+test('参考内容：风格卡带上断句、逻辑、讲述和衔接；原文只进正文提示词', () => {
+  const style = normalizeStyle({ name: '我', logic: '先讲反例', story: '从一件小事讲起', flow: '用「然后呢」接', samples: ['一', '二', '三', '四', '五', '六', '七'] })
+  assert.equal(style.samples.length, 6)
+  assert.match(styleToVoice(style), /逻辑：先讲反例/)
+  assert.match(styleToVoice(style), /衔接：用「然后呢」接/)
+  const state = seed()
+  const item = state.items[0]
+  state.styles = [{ id: 'st_x', ...style, reference: '然后呢，我就真去试了。' }]
+  state.activeStyleId = 'st_x'
+  const { system } = articlePrompts(state, item, '')
+  assert.match(system, /断句/)
+  assert.match(system, /口头禅/)
+  assert.match(system, /<reference>然后呢，我就真去试了。<\/reference>/)
+  assert.doesNotMatch(planPrompts(state, item, { imageCount: 1, shotCount: 1 }).system, /<reference>/)
+  // 手动填的语气同样按这个标准贴近
+  state.activeStyleId = null
+  assert.match(articlePrompts(state, item, '我说话爱用反问').system, /看问题的逻辑[\s\S]*我说话爱用反问/)
+})

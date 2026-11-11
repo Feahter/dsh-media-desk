@@ -15,7 +15,7 @@ import { createMonidRunner, fetchAccount, importPosts, monidStatus, postsToMater
 import { applyOps, newId } from './ops.js'
 import { applyRevision, Producer } from './produce.js'
 import { publicSettings, Settings, imageReady } from './settings.js'
-import { normalizeStyle, stylePrompts } from './style.js'
+import { normalizeStyle, referenceExcerpt, stylePrompts } from './style.js'
 import { dshHome, Store } from './store.js'
 import { currentLang, platformName, tr, withLang } from './i18n.js'
 import { localizeSamples, samplesNeedLocale } from './seed.js'
@@ -204,7 +204,7 @@ async function styleFromMaterial(ctx, store, { material, name, source, sourceUrl
   return store.mutate(tr('提炼风格「{name}」', { name: style.name }), (draft) => {
     const existing = accountKey ? (draft.styles ?? []).find(row => row.accountKey === accountKey) : null
     const id = existing?.id ?? newId('st')
-    const row = { id, ...style, source, sourceUrls, ...(accountKey ? { accountKey } : {}), createdAt: existing?.createdAt ?? new Date().toISOString() }
+    const row = { id, ...style, reference: referenceExcerpt(material), source, sourceUrls, ...(accountKey ? { accountKey } : {}), createdAt: existing?.createdAt ?? new Date().toISOString() }
     draft.styles = existing ? draft.styles.map(entry => (entry.id === id ? row : entry)) : [row, ...(draft.styles ?? [])]
     draft.activeStyleId = id
     return { id, failures, state: draft }
