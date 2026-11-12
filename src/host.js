@@ -380,6 +380,7 @@ async function route(ctx, store, desk, req, res) {
         const target = draft.items.find(row => row.id === body.id)
         if (target?.production) {
           target.production.savedPath = saved.path
+          target.production.savedHashes = saved.hashes
           target.production.savedAt = new Date().toISOString()
         }
         return draft

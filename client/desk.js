@@ -226,7 +226,7 @@ export async function saveProduced(id) {
     const videoCover = await coverDataUrl({ src: production.cover?.src, text: production.coverText || production.title }).catch(() => undefined)
     const data = await request('produce/save', { id, videoCover })
     setDesk({ state: data.state })
-    toast(t('已保存到 {path}', { path: data.path }))
+    toast(data.backups?.length ? t('已保存到 {path}。你在文件夹里改过的稿子另存成了 {names}', { path: data.path, names: data.backups.join(lang() === 'en' ? ', ' : '、') }) : t('已保存到 {path}', { path: data.path }))
   } catch (err) {
     report(err)
   }

@@ -187,7 +187,9 @@ export class Producer {
     this.jobs.set(id, job)
     await this.store.mutate('开始成稿', (draft) => {
       const target = draft.items.find(row => row.id === id)
-      target.production = { status: 'running', stage: 'brief', withImages: draw, startedAt: new Date().toISOString(), format: draftFormat(draft.draftFormat), title: target.title, article: '', cover: null, images: [], shots: [] }
+      // 重新成稿后还存回原来的文件夹，不会每做一次多出一个
+      const { savedPath, savedHashes } = target.production ?? {}
+      target.production = { status: 'running', stage: 'brief', withImages: draw, startedAt: new Date().toISOString(), format: draftFormat(draft.draftFormat), title: target.title, article: '', cover: null, images: [], shots: [], ...(savedPath ? { savedPath, savedHashes } : {}) }
       return draft
     }, { undoable: false })
     // 不等待：浏览器靠轮询拿进度

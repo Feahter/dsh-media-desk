@@ -22,7 +22,8 @@ test('index.json：官方校验器接受，安装地址指向 npm 上的 dsh-med
   const [plugin] = parsed.plugins
   assert.equal(plugin.name, 'dsh-media-desk')
   const [version] = plugin.versions
-  assert.equal(marketInstallTarget(plugin.name, version).spec, 'dsh-media-desk@2.6.2')
+  // 版本号每次发版都会变，这里只认格式
+  assert.match(marketInstallTarget(plugin.name, version).spec, /^dsh-media-desk@\d+\.\d+\.\d+$/)
 })
 
 test('index.json：列表里的版本和 engines 与 package.json 一致', () => {

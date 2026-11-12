@@ -338,6 +338,7 @@ button.md-stamp:not(:disabled):hover { transform: scale(1.08) rotate(-2deg); }
 .md-tile-head { flex: none; display: flex; align-items: center; gap: 2px; height: 44px; padding: 0 8px 0 18px; }
 .md-root .md-tile-head h2 { font-size: 13px; line-height: 20px; font-weight: 600; }
 .md-tile-meta { margin-left: 8px; color: var(--ink3); font-size: 12px; line-height: 18px; font-variant-numeric: tabular-nums; }
+.md-i-trend .md-tile-meta { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .md-grow { flex: 1; }
 .md-tile-head .md-icon-btn { width: 28px; height: 28px; border-radius: var(--r-sm); }
 .md-tile-foot { position: absolute; right: 14px; bottom: 10px; color: var(--ink3); font-size: 11.5px; font-variant-numeric: tabular-nums; }
