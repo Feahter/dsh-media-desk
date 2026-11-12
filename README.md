@@ -317,6 +317,7 @@ dsh plugin --profile web add dsh-media-desk
 - [Feahter](https://github.com/Feahter)：做了插件市场索引，粘一条地址就能在「发现」里一键安装，还带上了校验和测试（[#11](https://github.com/woniuniuniu/dsh-media-desk/pull/11)）
 - [TerryWang9112（Terry）](https://github.com/TerryWang9112)：接入阿里云百炼和万相生图，并让每次成稿可以选择只出文字、不画图（[#12](https://github.com/woniuniuniu/dsh-media-desk/pull/12)）
 - [ytzhangFTD（小虾米）](https://github.com/ytzhangFTD)：发现灵感的正文进了成稿工作区就看不到，并定位到是哪一处没有渲染（[#13](https://github.com/woniuniuniu/dsh-media-desk/issues/13)）
+- [giuliano1101](https://github.com/giuliano1101)：查出同一篇内容的数据会被重复计算（[#15](https://github.com/woniuniuniu/dsh-media-desk/issues/15)）、再次保存成稿会冲掉文件夹里手改的稿子（[#16](https://github.com/woniuniuniu/dsh-media-desk/issues/16)），还完整做了一版多账号、命令行与 MCP、版本历史的方案供参考（[#14](https://github.com/woniuniuniu/dsh-media-desk/pull/14)）
 
 欢迎大家继续[提 issue](https://github.com/woniuniuniu/dsh-media-desk/issues)，每一条都会认真看。
 

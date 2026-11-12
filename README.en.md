@@ -304,6 +304,7 @@ To the people who tried it carefully, tracked problems down and sent fixes:
 - [Feahter](https://github.com/Feahter), for the plugin market index that makes the desk a one-click install from Discover, validation and tests included ([#11](https://github.com/woniuniuniu/dsh-media-desk/pull/11))
 - [TerryWang9112 (Terry)](https://github.com/TerryWang9112), for adding Alibaba Cloud Bailian and Wan image generation, and for letting each draft skip images ([#12](https://github.com/woniuniuniu/dsh-media-desk/pull/12))
 - [ytzhangFTD](https://github.com/ytzhangFTD), for noticing that an idea's notes disappear inside the studio and pinpointing the missing render path ([#13](https://github.com/woniuniuniu/dsh-media-desk/issues/13))
+- [giuliano1101](https://github.com/giuliano1101), for finding that stats for the same post could be counted twice ([#15](https://github.com/woniuniuniu/dsh-media-desk/issues/15)) and that saving again overwrote hand edits in the export folder ([#16](https://github.com/woniuniuniu/dsh-media-desk/issues/16)), and for building a full take on multiple accounts, a CLI and MCP server, and version history that we're learning from ([#14](https://github.com/woniuniuniu/dsh-media-desk/pull/14))
 
 [Issues](https://github.com/woniuniuniu/dsh-media-desk/issues) are always welcome. Every one gets read.
 
