@@ -27,6 +27,22 @@
 
 <br>
 
+<table>
+<tr>
+<td width="24%" align="center">
+  <a href="https://bozhufarm.com"><img src="docs/assets/bozhufarm-woo.webp" width="100%" alt="博主农场的农民蜗"></a>
+</td>
+<td valign="top">
+<h3>想用满血版？来博主农场</h3>
+<p>这个插件目前还是实验项目，是跟着 DeepSeek Harness 的生态做的。</p>
+<p>如果你想体验更多不同的模型，用原汁原味的满血版，可以来 <a href="https://bozhufarm.com"><b>博主农场</b></a>。写内容的模型已经帮你配好，生图模型也配好了，封面一键就能画。不用自己找密钥、配接口，打开就能做内容。</p>
+<p><a href="https://bozhufarm.com"><b>打开 bozhufarm.com →</b></a></p>
+</td>
+</tr>
+</table>
+
+<br>
+
 ## 它是什么
 
 装在 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 侧栏里的一个页面。打开是一面灵感墙，一句话记一个灵感；点开任何一条，一键生成口播脚本、标题、视频封面、配图和黑白线稿分镜；左边聊一句，右边就改。做好的稿子拖到日历上排期，发布之后回来看数据。
